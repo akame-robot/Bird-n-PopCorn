@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class BirdControll : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] private float moveSpeed;
+    private Rigidbody2D rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        movement();
     }
+
+    public void movement()
+    {
+        float horiMove = Input.GetAxisRaw("Horizontal");
+        Vector2 moveSide = new Vector2 (horiMove, 0);
+        rb.velocity = moveSide * moveSpeed;
+    }
+    
 }
