@@ -30,7 +30,7 @@ public class PopcornControll : MonoBehaviour
     {
         while (invoking)
         {
-            time = Random.Range(1, 3);
+            time = Random.Range(1, 4);
             yield return new WaitForSeconds(time);
             float x = Random.Range(-11, 11);
             float y = 6f;
