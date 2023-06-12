@@ -24,4 +24,17 @@ public class PopCornScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("seed"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

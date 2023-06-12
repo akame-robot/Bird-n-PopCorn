@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BirdControll : MonoBehaviour
 {
@@ -67,14 +68,14 @@ public class BirdControll : MonoBehaviour
         if (canFlip)
         {
         Vector2 flip = transform.localScale;
-        flip.x = -0.6f;
+        flip.x = -0.8f;
         transform.localScale = flip;
         }
 
         if (!canFlip)
         {
             Vector2 flip = transform.localScale;
-            flip.x = 0.6f;
+            flip.x = 0.8f;
             transform.localScale = flip;
         }
     }
@@ -88,6 +89,16 @@ public class BirdControll : MonoBehaviour
         if (transform.position.x > 11.77f)
         {
             transform.position = new Vector2(11.76f, transform.position.y);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("popcorn"))
+        {
+            Debug.Log("collided");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

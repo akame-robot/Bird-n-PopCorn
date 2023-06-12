@@ -6,6 +6,7 @@ TagManager:
   tags:
   - seed
   - popcorn
+  - floor
   layers:
   - Default
   - TransparentFX
