@@ -1,2 +1,2 @@
 # Bird-n-PopCorn
- jogo onde o passaro come pipoca com lingua 
+ jogo onde o passaro atira milho de pipoca :)
