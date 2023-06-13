@@ -14,6 +14,8 @@ public class BirdControll : MonoBehaviour
     private bool canFlip;
     private Vector2 originalScale;
 
+
+
     //11.77f
 
 
@@ -97,6 +99,7 @@ public class BirdControll : MonoBehaviour
         if (collision.gameObject.CompareTag("popcorn"))
         {
             Debug.Log("collided");
+            PopCornScript.score = 0;
             Destroy(this.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

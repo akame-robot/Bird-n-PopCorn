@@ -5,10 +5,12 @@ using UnityEngine;
 public class PopCornScript : MonoBehaviour
 {
 
+    public static int score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class PopCornScript : MonoBehaviour
     {
         if (collision.tag == "seed")
         {
+            score += 100;
             Destroy(this.gameObject);
         }
     }
@@ -29,11 +32,14 @@ public class PopCornScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("seed"))
         {
+            score += 100;
             Destroy(this.gameObject);
+
         }
 
         if (collision.gameObject.CompareTag("floor"))
         {
+            score -= 50;
             Destroy(this.gameObject);
         }
     }

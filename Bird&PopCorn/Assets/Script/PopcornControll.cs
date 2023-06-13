@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PopcornControll : MonoBehaviour
 {
@@ -11,19 +12,17 @@ public class PopcornControll : MonoBehaviour
     private float currentWave;
     private float nextSpawnTime;
     private int time;
-
-
-
+    public TextMeshProUGUI point;
 
     private void OnEnable()
     {
-        StartCoroutine(SpawnPopCorn());
-            
+        StartCoroutine(SpawnPopCorn());           
     }
 
     // Update is called once per frame
     void Update()
     {
+        Score();
     }
 
     IEnumerator SpawnPopCorn()
@@ -37,5 +36,10 @@ public class PopcornControll : MonoBehaviour
             Vector2 spawnObject = new Vector2(x, y);
             Instantiate(popCorn, spawnObject, Quaternion.identity);
         }
+    }
+
+    public void Score()
+    {
+        point.text = "Score: " + PopCornScript.score.ToString();
     }
 }
