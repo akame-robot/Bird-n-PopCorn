@@ -42,5 +42,10 @@ public class PopCornScript : MonoBehaviour
             score -= 50;
             Destroy(this.gameObject);
         }
+
+        if (score <= 0)
+        {
+            score = 0;
+        }
     }
 }
