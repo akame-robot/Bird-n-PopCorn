@@ -16,7 +16,7 @@ public class PopcornControll : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(SpawnPopCorn());           
+        StartCoroutine(SpawnPopCorn());
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class PopcornControll : MonoBehaviour
         {
             time = Random.Range(1, 4);
             yield return new WaitForSeconds(time);
-            float x = Random.Range(-11, 11);
+            float x = Random.Range(-8.7f, 8.7f);
             float y = 6f;
             Vector2 spawnObject = new Vector2(x, y);
             Instantiate(popCorn, spawnObject, Quaternion.identity);

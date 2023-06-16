@@ -84,13 +84,13 @@ public class BirdControll : MonoBehaviour
 
     public void DontGoOffcamera()
     {
-        if (transform.position.x < -11.77f)
+        if (transform.position.x < -8.48f)
         {
-            transform.position = new Vector2(-11.76f, transform.position.y);
+            transform.position = new Vector2(-8.47f, transform.position.y);
         }
-        if (transform.position.x > 11.77f)
+        if (transform.position.x > 8.48f)
         {
-            transform.position = new Vector2(11.76f, transform.position.y);
+            transform.position = new Vector2(8.47f, transform.position.y);
         }
     }
 
