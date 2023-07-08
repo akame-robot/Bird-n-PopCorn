@@ -12,7 +12,10 @@ public class BirdControll : MonoBehaviour
     public GameObject seed;
 
     private bool canFlip;
+    [SerializeField] private bool isJumpWalk;
     private Vector2 originalScale;
+
+    int gravity = -50;
 
 
 
@@ -29,6 +32,7 @@ public class BirdControll : MonoBehaviour
     {
         movement();
         DontGoOffcamera();
+
     }
 
     public void movement()
@@ -36,6 +40,23 @@ public class BirdControll : MonoBehaviour
         float horiMove = Input.GetAxisRaw("Horizontal");
         Vector2 moveSide = new Vector2(horiMove, 0);
         rb.velocity = moveSide * moveSpeed;
+
+        if (isJumpWalk && moveSide != Vector2.zero)
+        {
+            Vector2 walkIdle = transform.position;
+            walkIdle.y = -3.43f;
+            transform.position = walkIdle;
+        }
+        if (transform.position.y >= -3.53f)
+        {
+            isJumpWalk = false;
+        }
+        else if (transform.position.y < -3.53f)
+        {
+            isJumpWalk = true;
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -69,15 +90,15 @@ public class BirdControll : MonoBehaviour
     {
         if (canFlip)
         {
-        Vector2 flip = transform.localScale;
-        flip.x = -0.8f;
-        transform.localScale = flip;
+            Vector2 flip = transform.localScale;
+            flip.x = -1f;
+            transform.localScale = flip;
         }
 
         if (!canFlip)
         {
             Vector2 flip = transform.localScale;
-            flip.x = 0.8f;
+            flip.x = 1f;
             transform.localScale = flip;
         }
     }
